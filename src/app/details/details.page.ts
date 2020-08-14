@@ -44,7 +44,11 @@ export class DetailsPage implements OnInit {
     })
     this.validations_form = this.formBuilder.group({
       title: new FormControl(this.item.title, Validators.required),
-      description: new FormControl(this.item.description, Validators.required)
+      description : new FormControl(this.item.description, Validators.required),
+      nombre : new FormControl(this.item.nombre, Validators.required),
+      direccion : new FormControl(this.item.direccion, Validators.required),
+      productos : new FormControl(this.item.productos, Validators.required),
+      estado : new FormControl(this.item.estado, Validators.required)
     });
   }
 
@@ -52,6 +56,10 @@ export class DetailsPage implements OnInit {
     let data = {
       title: value.title,
       description: value.description,
+      nombre: value.nombre,
+      direccion : value.direccion,
+      productos : value.productos,
+      estado : value.estado,
       image: this.image
     }
     this.firebaseService.updateTask(this.item.id,data)

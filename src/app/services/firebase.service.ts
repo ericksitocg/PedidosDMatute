@@ -75,7 +75,11 @@ export class FirebaseService {
       this.afs.collection('people').doc(currentUser.uid).collection('tasks').add({
         title: value.title,
         description: value.description,
-        image: value.image
+        image: value.image,
+        nombre: value.nombre,
+        direccion : value.direccion,
+        productos : value.productos,
+        estado : value.estado
       })
       .then(
         res => resolve(res),
